@@ -1,0 +1,21 @@
+<h1>Register</h1>
+<br>
+{% if passError %}
+<h3>Password validation failed</h3>
+<ul>
+    {% for message in passError %}
+        <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+{% if error %}
+    <h3>{{error}}</h3>
+{% endif %}
+
+<form action="{% url 'register' %}" method="post">
+    {{form}}
+    {% csrf_token %}
+    <br><br><button type="submit">Register</button>
+</form>
